@@ -3,7 +3,7 @@
 
 REPOSITORY=/home/ec2-user/app/step1
 PROJECT_ROOT=book
-PROJECT_NAME=springboo
+PROJECT_NAME=springboot2-aws-web
 
 cd $REPOSITORY/PROJECT_ROOT
 
