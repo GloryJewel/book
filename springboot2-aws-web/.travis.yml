@@ -1,0 +1,19 @@
+laguage: java
+jdk:
+  - openjdk8
+
+branches:
+  only:
+    - master
+
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.gradle'
+
+script: "./gradlew clean build"
+
+notifications:
+  email:
+    recipients:
+      - sgloryjewel@gmail.com
