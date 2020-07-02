@@ -29,6 +29,17 @@ deploy:
       local_dir: deploy
       wait-until-deployed: true
 
+    - provider: codedeploy
+      access_key_id: $AWS_ACCESS_KEY # Travis repo settings 설정 값
+      secret_access_key: $AWS_SECRET_KEY # Travis repo settings 설정 값
+      bucket: free-springboot-build
+      key: free-springboot-build.zip
+      bundle_type: zip
+      application: free-springboot-web
+      deployment_group: free-springboot-web-group
+      region: ap-northeast-2
+      wait-until-deployed: true
+
 notifications:
   email:
     recipients:
