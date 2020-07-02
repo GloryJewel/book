@@ -16,9 +16,7 @@ class IndexControllerTests {
     @Test
     void index() {
         String body = restTemplate.getForObject("/", String.class);
-
         System.out.println(body);
-
         assertTrue(body.contains("스프링 부트로"));
     }
 }
