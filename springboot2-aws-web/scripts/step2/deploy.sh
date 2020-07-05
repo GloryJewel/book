@@ -1,5 +1,5 @@
-#!/usr/bin/env bash
 #REPOSITORY git clone, REPOSITORY에 jar 파일 이동 및 실행
+#!/bin/bash
 
 REPOSITORY=/home/ec2-user/app/step2
 PROJECT_NAME=springboot2-aws-web
@@ -10,7 +10,7 @@ cp ${REPOSITORY}/zip/*.jar ${REPOSITORY}/
 
 echo "> confirm the running program pid"
 
-CURRENT_PID=$(pgrep -f -${PROJECT_NAME}*.jar)
+CURRENT_PID=$(pgrep -fl -${PROJECT_NAME} | grep jar | awk '{print $1}')
 
 echo "> running program pid: ${CURRENT_PID}"
 
@@ -24,7 +24,7 @@ fi
 
 echo "> deploy application"
 
-JAR_NAME=$(ls -tr ${REPOSITORY}/ | grep *.jar | tail -n 1)
+JAR_NAME=$(ls -tr ${REPOSITORY}/*.jar | tail -n 1)
 
 echo "> JAR name: ${JAR_NAME}"
 
