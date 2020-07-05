@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 #REPOSITORY git clone, REPOSITORY에 jar 파일 이동 및 실행
 
 REPOSITORY=/home/ec2-user/app/step2
