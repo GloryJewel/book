@@ -10,7 +10,7 @@ cp ${REPOSITORY}/zip/*.jar ${REPOSITORY}/
 
 echo "> confirm the running program pid"
 
-CURRENT_PID=$(pgrep -fl -${PROJECT_NAME} | grep jar | awk '{print $1}')
+CURRENT_PID=$(pgrep -fl ${PROJECT_NAME} | grep jar | awk '{print $1}')
 
 echo "> running program pid: ${CURRENT_PID}"
 
@@ -28,12 +28,8 @@ JAR_NAME=$(ls -tr ${REPOSITORY}/*.jar | tail -n 1)
 
 echo "> JAR name: ${JAR_NAME}"
 
-echo "> ${REPOSITORY}/${JAR_NAME} add execute permission"
+echo "> ${JAR_NAME} add execute permission"
 
-chmod +x ${REPOSITORY}/${JAR_NAME}
+chmod +x ${JAR_NAME}
 
-cd ${REPOSITORY}
-
-nohup java -jar -Dspring.config.location=classpath:/application.yml,/home/ec2-user/app/application-oauth.yml,/home/ec2-user/app/application-real.yml ${REPOSITORY}/${JAR_NAME} 2>&1 &
-
-
+nohup java -jar -Dspring.config.location=classpath:/application.yml,/home/ec2-user/app/application-oauth.yml,/home/ec2-user/app/application-real.yml ${JAR_NAME} 2>&1 &
