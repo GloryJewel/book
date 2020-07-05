@@ -12,6 +12,8 @@ echo "> confirm the running program pid"
 
 CURRENT_PID=$(pgrep -f -${PROJECT_NAME}*.jar)
 
+echo "> ${REPOSITORY}"
+
 echo "> running program pid: ${CURRENT_PID}"
 
 if [-z "${CURRENT_PID}"]; then
