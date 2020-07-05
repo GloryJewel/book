@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #REPOSITORY git clone, REPOSITORY에 jar 파일 이동 및 실행
 
 REPOSITORY=/home/ec2-user/app/step2
@@ -11,8 +11,6 @@ cp ${REPOSITORY}/zip/*.jar ${REPOSITORY}/
 echo "> confirm the running program pid"
 
 CURRENT_PID=$(pgrep -f -${PROJECT_NAME}*.jar)
-
-echo "> ${REPOSITORY}"
 
 echo "> running program pid: ${CURRENT_PID}"
 
