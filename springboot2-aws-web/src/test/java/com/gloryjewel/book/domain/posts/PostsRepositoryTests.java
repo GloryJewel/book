@@ -10,19 +10,19 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class PostsRepositoryTests {
 
     @Autowired
     PostsRepository postsRepository;
 
     @AfterEach
-    public void cleanUp(){
+    void cleanUp(){
         postsRepository.deleteAll();
     }
 
     @Test
-    public void save_list(){
+    void save_list(){
 
         String title = "게시글";
         String content = "본문";
@@ -43,7 +43,7 @@ class PostsRepositoryTests {
     }
 
     @Test
-    public void save_localTime(){
+    void save_localTime(){
         LocalDateTime now = LocalDateTime.now();
 
         postsRepository.save(Posts.builder()

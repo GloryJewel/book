@@ -47,7 +47,7 @@ class PostsApiControllerTests {
     private WebApplicationContext context;
 
     @BeforeEach
-    public void setUp(){
+    void setUp(){
         mockMvc = MockMvcBuilders
                     .webAppContextSetup(context)
                     .apply(springSecurity())
@@ -56,7 +56,7 @@ class PostsApiControllerTests {
 
 
     @AfterEach
-    public void tearDown(){
+    void tearDown(){
         postsRepository.deleteAll();
     }
 
@@ -92,7 +92,7 @@ class PostsApiControllerTests {
 
     @WithMockUser(roles = "USER")
     @Test
-    public void update() throws Exception {
+    void update() throws Exception {
 
         Posts savedPosts = postsRepository.save(Posts.builder()
                                                         .title("title")
