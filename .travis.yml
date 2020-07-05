@@ -14,9 +14,13 @@ cache:
 script: "./gradlew clean build"
 
 before_deploy:
-    - zip -r springboot2-aws-web *
-    - mkdir -p deploy
-    - mv springboot2-aws-web.zip deploy/springboot2-aws-web.zip
+    - mkdir -p before-deploy
+    - cp springboo2-aws-web/scripts/step2/*.sh before-deploy
+    - cp springboo2-aws-web/scripts/step2/appspec.yml before-deploy
+    - cp springboo2-aws-web/build/libs/*.jar before-deploy
+    - cd before-deploy && zip -r before-deploy
+    - cd ../ && mkdir -p deploy
+    - mv before-deploy/before-deploy.zip deploy/springboot2-aws-web.zip
 
 deploy:
     - provider: s3
