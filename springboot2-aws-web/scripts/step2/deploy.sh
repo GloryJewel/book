@@ -14,7 +14,7 @@ CURRENT_PID=$(pgrep -fl ${PROJECT_NAME} | grep jar | awk '{print $1}')
 
 echo "> running program pid: ${CURRENT_PID}"
 
-if [-z "${CURRENT_PID}"]; then
+if [ -z "${CURRENT_PID}" ]; then
     echo "> there are no programs running"
 else
     echo "> kill -15 ${CURRENT_PID}"
