@@ -32,4 +32,6 @@ echo "> ${JAR_NAME} add execute permission"
 
 chmod +x ${JAR_NAME}
 
+cd ${REPOSITORY}
+
 nohup java -jar -Dspring.config.location=classpath:/application.yml,/home/ec2-user/app/application-oauth.yml,/home/ec2-user/app/application-real.yml ${JAR_NAME} 2>&1 &
